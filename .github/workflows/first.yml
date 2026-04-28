@@ -1,0 +1,13 @@
+name : first_action
+
+on :
+    push :
+        branches : 
+            - main 
+jobs : 
+    build :
+        runs-on : ubuntu-latest
+
+        steps : 
+            - name: clonning my repo
+              uses : actions/checkout@v4
