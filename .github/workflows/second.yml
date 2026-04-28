@@ -1,0 +1,24 @@
+name : second_action
+
+on :
+    push :
+        branches : 
+            - main 
+    
+    workflow_dispatch :
+jobs : 
+    build :
+        runs-on : ubuntu-latest
+
+        steps : 
+            - name: clonning my repo
+              uses : actions/checkout@v4
+
+            - name : building image
+              run : docker build -t karimalmamlouk/mlops_pipeline:latest . 
+            
+            - name : Docker login
+              run : docker login -u karimalmamlouk -p ${{ secrets.DOCKER_HUB_TOKEN }}
+
+            - name : Docker push
+              run : docker push karimalmamlouk/mlops_pipeline:latest
