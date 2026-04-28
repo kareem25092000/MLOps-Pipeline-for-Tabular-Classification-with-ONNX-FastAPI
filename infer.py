@@ -17,6 +17,6 @@ def predict_survival(features):
     return prediction
 
 if __name__ == '__main__':
-    features = [.2 ,.3 ,.3 ,.5 ,.4 ,.8 ,.2]
+    features = [3 ,0 ,26.0 ,0 ,0 ,7.92 ,2]
     prediction = predict_survival(features)
     print(prediction)
